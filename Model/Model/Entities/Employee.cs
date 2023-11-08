@@ -1,8 +1,10 @@
-﻿namespace indigyTestProject.Model.Model.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace indigyTestProject.Model.Model.Entities
 {
     public partial class Employee
     {
-        public int Id { get; set; }
+        public int EMPNO { get; set; }
         public string FirstName { get; set; } = null!;
 
         public string LastName { get; set; } = null!;

@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
 using indigyTestProject.Model.Model.Entities;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace indigyTestProject.Database
 {
@@ -22,10 +23,12 @@ namespace indigyTestProject.Database
         {
             modelBuilder.Entity<Employee>(entity =>
             {
+                
                 entity.ToTable("Employee");
 
-                entity.Property(e => e.Id)
-                    .HasColumnName("EMPNO");
+                entity.HasKey(e => e.EMPNO);
+                entity.Property(e => e.EMPNO)
+                .HasColumnName("EMPNO");
                 entity.Property(e => e.FirstName)
                     .HasColumnName("FIRST_NAME");
                 entity.Property(e => e.LastName)

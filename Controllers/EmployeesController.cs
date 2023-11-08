@@ -43,7 +43,7 @@ namespace indigyTestProject.Controllers
         }
 
         [HttpPut("Update")]
-        public async Task<ActionResult<ResponseDTO<Employee>>> Update(UpdateEmployeesRequestDTO employee)
+        public async Task<ActionResult<ResponseDTO<Employee>>> Update([FromForm]UpdateEmployeesRequestDTO employee)
         {
             var result = await _employeesService.Update(employee);
             if(result == null)
@@ -57,7 +57,7 @@ namespace indigyTestProject.Controllers
             var result = await _employeesService.Delete(id);
             if(result == null)
                 return new BadRequestObjectResult(new ResponseDTO<string?>(400 , "not found" , ""));
-            return new ResponseDTO<string>(200 , "successful" , result.Id.ToString());
+            return new ResponseDTO<string>(200 , "successful" , result.EMPNO.ToString());
         }
 
     }

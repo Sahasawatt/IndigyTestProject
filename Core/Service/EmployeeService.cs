@@ -39,7 +39,7 @@ namespace indigyTestProject.Core.Service
 
         public async Task<Employee?> Delete(int id)
         {
-            var employeeToDelete = _databaseContext.Employees.AsQueryable().FirstOrDefault(x => x.Id == id);
+            var employeeToDelete = _databaseContext.Employees.AsQueryable().FirstOrDefault(x => x.EMPNO == id);
             if(employeeToDelete == null)
             {
                 return null;
@@ -51,7 +51,7 @@ namespace indigyTestProject.Core.Service
 
         public async Task<Employee?> GetById(int id)
         {
-            var employee = await _databaseContext.Employees.AsQueryable().FirstOrDefaultAsync(x => x.Id == id);
+            var employee = await _databaseContext.Employees.AsQueryable().FirstOrDefaultAsync(x => x.EMPNO == id);
             if(employee == null)
             {
                 return null;
@@ -69,7 +69,7 @@ namespace indigyTestProject.Core.Service
 
         public async Task<Employee?> Update(UpdateEmployeesRequestDTO employee)
         {
-            var employeeToUpdate = _databaseContext.Employees.AsQueryable().FirstOrDefault(x => x.Id == employee.Id);
+            var employeeToUpdate = _databaseContext.Employees.AsQueryable().FirstOrDefault(x => x.EMPNO == employee.EMPNO);
             if (employeeToUpdate == null)
             {
                 return null;
